@@ -3,6 +3,7 @@ package StepDefinitions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 
 import io.cucumber.java.en.And;
@@ -20,7 +21,9 @@ public class LoginStepsDefinition {
 	public void user_is_on_the_login_page() {
 	    // Write code here that turns the phrase above into concrete actions
 	   // throw new io.cucumber.java.PendingException();
-		driver = new FirefoxDriver();
+		FirefoxOptions options = new FirefoxOptions();
+		options.addArguments("-headless");
+		driver = new FirefoxDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.get("https://www.saucedemo.com/v1");
 		
